@@ -1,3 +1,7 @@
+* {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: lighter;
+}
 /* You can add global styles to this file, and also import other style files */
 /**
  * angular-calendar - A calendar component for angular 4.0+ that can display events on a month, week or day view
@@ -8,7 +12,7 @@
  */
 
 .cal-month-view {
-	width: 40%;
+	width: 100%;
 	display: inline-block;
 }
 

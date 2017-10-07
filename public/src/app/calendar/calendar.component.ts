@@ -49,7 +49,7 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
     this._dateObservableService.updateDate(this.clickedDate);
     this.changedDate.emit(this.clickedDate);
   }
-  
+
  /**
    * The current view date
 

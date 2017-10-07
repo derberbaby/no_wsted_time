@@ -1,0 +1,5 @@
+<form (submit)="createMessage(); messageForm.reset()" #messageForm='ngForm'>
+	<input type="text" name="message"
+	[(ngModel)]='newMessage.message'>
+	<input type="submit" value="Enter">
+</form>

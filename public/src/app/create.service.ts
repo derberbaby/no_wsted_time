@@ -8,7 +8,7 @@ export class CreateService {
   constructor(private _http: Http) { }
 
   serviceCreate(newThing) {
-    return this._http.post('/api/create', newThing)
+    return this._http.post('/api/creates', newThing)
       .map( (response) => response.json())
       .toPromise()
   }
@@ -56,6 +56,16 @@ export class CreateService {
     return this._http.post('/api/edit/end/' + eventID, { end_date: editedEnd } )
     .map ( res => res.json())
     .toPromise()
+  }
+
+  serviceCreateMessage(message, eventID){
+    return this._http.post('/api/messages/add/' + eventID, message)
+    .map( (response) => response.json())
+    .toPromise()
+  }
+
+  serviceGetAllMessages(){
+    return this._http.get('/api/get_all_messages').map( (response) => response.json()).toPromise();
   }
 
 }

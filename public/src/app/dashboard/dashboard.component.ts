@@ -47,7 +47,8 @@ export class DashboardComponent implements OnInit {
   }
 
   logout() {
-    this._userService.serviceLogout().then().catch();
+    this._userService.serviceLogout()
+    .then().catch();
   }
 
 }

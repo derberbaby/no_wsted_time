@@ -15,10 +15,11 @@ export class EventDetailComponent implements OnInit {
 	private sub: any;
 	event: Create;
   friend;
+  messages;
 
   constructor(
   	private _userService: UserService,
-  	private _createService: CreateService, 
+  	private _createService: CreateService,
   	private _router: Router,
   	private _route: ActivatedRoute ) { }
 
@@ -43,7 +44,9 @@ export class EventDetailComponent implements OnInit {
   invite() {
     console.log("component", this.id);
     this._userService.serviceInviteFriend(this.id.id, this.friend)
-    .then().catch();
+    .then( data => {
+      this.event = data
+    }).catch();
   }
 
   editTitle(value) {
@@ -80,7 +83,7 @@ export class EventDetailComponent implements OnInit {
       this.event = data;
     }).catch( err => {
       console.log(err)
-    })  
+    })
   }
 
   editEnd(value){
@@ -90,6 +93,19 @@ export class EventDetailComponent implements OnInit {
       this.event = data;
     }).catch( err => {
       console.log(err)
-    })  
+    })
   }
+
+  createMessage(message){
+  this._createService.serviceCreateMessage(message, this.id.id)
+    .then( data => {
+      console.log("BEFORE erasing MESSAGES", this.messages)
+      this.messages = [];
+      console.log("BEFORE EDITING MESSAGES", this.messages)
+      this.messages = data.messages;
+      console.log("AFTER REASSIGNING", this.messages);
+    } )
+    .catch()
+  }
+
 }

@@ -1,62 +1,72 @@
-
-<div id="reg">
-<h3>Registration</h3>
+<div id="reg" class="md-form">
+	<div class="text-center">
+		<h3>Registration</h3>
+		<hr class="mt-2 mb-2">
+	</div>
 	<form (submit)="register()" #regForm="ngForm">
-		<label for="name">*Name:
+		<i class="fa fa-user-circle-o prefix"></i>
 		<input type="text"
 		name="name"
+		class="form-control"
+		placeholder="Enter Name"
 		required
 		[(ngModel)]="user.name"
-		#name="ngModel"
-		>
+		#name="ngModel">
 		<p *ngIf="name.errors?.required && (name.touched || name.dirty)">Please enter your name.</p>
-		</label>
-		<label for="email">*Email:
+
+		<i class="fa fa-envelope prefix"></i>
 		<input type="text"
 		name="email"
+		class="form-control"
+		placeholder="Enter Email"
 		required
 		minlength="4"
 		[(ngModel)]="user.email"
-		#email="ngModel"
-		>
+		#email="ngModel">
 		<p *ngIf="email.errors?.required && (email.touched || email.dirty)">Please enter your email.</p>
 		<p *ngIf="email.errors?.minlength && (email.touched || email.dirty)">Must be at least 4 characters.
 		</p>
-		</label>
-		<label for="password">*Password:
-		<input type="text"
+
+    <i class="fa fa-eye prefix"></i>
+    <input type="password"
 		name="password"
+		class="form-control"
+		placeholder="Enter Password"
 		required
 		minlength="8"
 		maxlength="32"
 		[(ngModel)]="user.password"
-		#password="ngModel"
-		>
+		#password="ngModel">
 		<p *ngIf="password.errors?.required && (password.touched || password.dirty)">Please enter a password.</p>
 		<p *ngIf="password.errors?.minlength && (password.touched || password.dirty)">Must be at least 8 characters.</p>
 		<p *ngIf="password.errors?.maxlength && (password.touched || psasword.dirty)">Cannot be more than 32 characters.</p>
 		<p *ngIf="password.errors?.pattern && (password.touched || password.dirty)">Must include 1 lowercase, 1 uppercase, and 1 number.</p>
-		</label>
-		<label for="password_confirm">*Password Confirmation:
-		<input type="text"
+
+		<i class="fa fa-lock prefix"></i>
+    <input type="password"
 		name="password_confirm"
+		class="form-control"
+		placeholder="Confirm Password"
 		required
 		[(ngModel)]="user.password_confirm"
-		#password_confirm="ngModel"
-		>
+		#password_confirm="ngModel">
+
 		<p *ngIf="!password_confirm.valid && (password_confirm.dirty || password_confirm.touched)">Please confirm password.</p>
 		<p *ngIf="user.password != user.password_confirm && (password_confirm.dirty || password_confirm.touched)">Passwords do not match.</p>
-		</label>
-		<label for="birthday">Birthday:
-		<input type="date"
+
+    <i class="fa fa-calendar prefix"></i>
+    <input type="date"
 		name="birthday"
 		required
 		[(ngModel)]="user.birthday"
-		#birthday="ngModel"
-		>
+		#birthday="ngModel">
 		<p *ngIf="!birthday.valid && (birthday.dirty || birthday.touched)">Birthday is required</p>
-		</label>
-		<input type="submit" [disabled]="!regForm.form.valid" value="Register">
-	</form>
-	<p>Already registered? <a [routerLink]="['/main', 'login']">LOGIN</a></p>
+
+			<div class="text-center">
+        <button class="btn btn-blue-grey" type="submit" [disabled]="!regForm.form.valid">Register</button>
+			</div>
+</form>
+<div class="modal-footer">
+	<p>Already registered? <a [routerLink]="['/main', 'login']">Login</a></p>
+</div>
 </div>

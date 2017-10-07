@@ -1,0 +1,15 @@
+img {
+  height: 60px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#tempinfo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span {
+  font-weight: bold;
+  color: #C58080;
+}

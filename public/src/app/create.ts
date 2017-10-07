@@ -7,6 +7,7 @@ export class Create {
     public description: string = "",
     public _Owners = [],
     public _Members = [],
-    public _Invitees = []
+    public _Invitees = [],
+    public messages = []
   ) {}
 }

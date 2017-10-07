@@ -11,8 +11,9 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from './landing/login/login.component';
 import { RegisterComponent } from './landing/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CreateComponent } from './create/create.component';
 import { JournalComponent } from './journal/journal.component';
+import { CreateComponent } from './create/create.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -26,6 +27,8 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { WeatherComponent } from './weather/weather.component';
 import { TaskComponent } from './task/task.component';
 import { WeatherService } from './weather.service';
+import { MessagecreateComponent } from './event-detail/messagecreate/messagecreate.component';
+import { MessagelistComponent } from './event-detail/messagelist/messagelist.component';
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { WeatherService } from './weather.service';
     EventsComponent,
     EventDetailComponent,
     WeatherComponent,
-    TaskComponent
+    TaskComponent,
+    MessagecreateComponent,
+    MessagelistComponent
   ],
   imports: [
     CommonModule,
@@ -57,5 +62,6 @@ import { WeatherService } from './weather.service';
   providers: [UserService, CreateService, JournalService, DateObservableService, WeatherService],
   bootstrap: [AppComponent],
   exports: [ CalendarComponent ]
+
 })
 export class AppModule { }

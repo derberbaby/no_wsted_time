@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<!-- // tells IE to use the latest rendering engine -->
-		<meta name="viewport" content="width = device-width, initial-scale=1">
-		<!-- // set page width to size of device -->
-		<title></title>
-	</head>
-	<body><div id="wrapper">
-	<div id="errors">
-		<p *ngFor="let error of errors">{{ error }}</p>
-	</div>
-	<router-outlet></router-outlet>
-</div>
 
-	</body>
-</html>
+		<div id="wrapper">
+			<div id="errors">
+				<p *ngFor="let error of errors">{{ error }}</p>
+			</div>
+			<router-outlet></router-outlet>
+		</div>

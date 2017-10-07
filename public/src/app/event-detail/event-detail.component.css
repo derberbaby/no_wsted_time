@@ -1,0 +1,22 @@
+div {
+  padding: 15px;
+}
+
+span {
+  font-weight: bold;
+  color: #C58080;
+}
+
+#editevent, #members {
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
+}
+
+input {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+label {
+  font-size: 14px;
+}

@@ -1,11 +1,14 @@
-
-<fieldset>
 <div id="TaskComponent">
+  <h4>To Do List</h4>
     <div *ngFor="let task of tasks; let idx = index">
-      <form>
-        <span> <input type="radio" (click)="deleteTask(idx)"> 
-        <inline-editor type="text" name="tasks" [(ngModel)]="tasks[idx]" (onSave)="updateEditable($event)"></inline-editor></span>
+      <form class="form-group">
+        <input type="checkbox" class="filled-in" id="checkbox2" (click)="deleteTask(idx)">
+        <label for="checkbox2"><inline-editor type="text" name="tasks" [(ngModel)]="tasks[idx]" (onSave)="updateEditable($event)"></inline-editor></label>
       </form>
+<!-- <form>
+        <span> <input type="radio" (click)="deleteTask(idx)">
+        <inline-editor type="text" name="tasks" [(ngModel)]="tasks[idx]" (onSave)="updateEditable($event)"></inline-editor></span>
+      </form> -->
     </div>
 
     <div>
@@ -14,4 +17,3 @@
     </form>
     </div>
 </div>
-</fieldset>

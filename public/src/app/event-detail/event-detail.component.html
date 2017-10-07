@@ -1,53 +1,78 @@
 <div *ngIf="event">
-<form >
-<p> Title: <inline-editor
-        type="text"
-        name="title"
-        [(ngModel)]="event.title"
-        (onSave)="editTitle($event)"
-        #title="ngModel"></inline-editor></p>
-<p> Category: <inline-editor
-        type="text"
-        name="category"
-        [(ngModel)]="event.category"
-        (onSave)="editCategory($event)"
-        #category="ngModel"></inline-editor></p>
-<p> Description: <inline-editor
-        type="textarea"
-        name="description"
-        [(ngModel)]="event.description"
-        (onSave)="editDescription($event)"
-        #description="ngModel"></inline-editor> </p>
-<p> Start Date: <inline-editor
-        type="date"
-        name="start_date"
-        [ngModel]="event.start_date"
-        (ngModelChange) = "event.start_date = $event"
-        (onSave)="editStart($event)"
-        #start_date="ngModel"></inline-editor></p>
-<p> End Date: <inline-editor
-        type="date"
-        name="end_date"
-        [ngModel]="event.end_date"
-        (ngModelChange) = "event.end_date = $event"
-        (onSave)="editEnd($event)"
-        #end_date="ngModel"></inline-editor> </p>
-</form>  
+  <a [routerLink]="['/dashboard']">Go Home</a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div id="editevent">
+      <form (onSave)="saveEditable($event)">
+      <p> <span>Title:</span> <inline-editor
+              type="text"
+              name="title"
+              [(ngModel)]="event.title"
+              (onSave)="editTitle($event)"
+              #title="ngModel"></inline-editor></p>
+      <p> <span>Category:</span> <inline-editor
+              type="text"
+              name="category"
+              [(ngModel)]="event.category"
+              (onSave)="editCategory($event)"
+              #category="ngModel"></inline-editor></p>
+      <p> <span>Description:</span> <inline-editor
+              type="textarea"
+              name="description"
+              rows="7"
+              cols="19"
+              [(ngModel)]="event.description"
+              (onSave)="editDescription($event)"
+              #description="ngModel"></inline-editor></p>
+      <p> <span>Start Date:</span> <inline-editor
+              type="date"
+              name="start_date"
+              [ngModel]="event.start_date"
+              (ngModelChange) = "event.start_date = $event"
+              (onSave)="editStart($event)"
+              #start_date="ngModel"></inline-editor></p>
+      <p> <span>End Date:</span> <inline-editor
+              type="date"
+              name="end_date"
+              [ngModel]="event.end_date"
+              (ngModelChange) = "event.end_date = $event"
+              (onSave)="editEnd($event)"
+              #end_date="ngModel"></inline-editor></p>
+      </form>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div id="members">
+      <span>Attendee(s):</span>
+      <ul>
+        <li *ngFor="let person of event._Members">{{person.name}}</li>
+      </ul>
 
-<h2>Attendee(s):</h2>
-<ul>
-	<li *ngFor="let person of event._Members">{{person.name}}</li>
-</ul>
 
-<form name="inviteForm" (submit)="invite(); inviteForm.reset()" #inviteForm="ngForm">
-	<label for="email">Friend's Email:<input 
-		type="text" 
-		name="friend"
-		[(ngModel)]="friend"
-		#friendemail='ngModel'
-		>
-	</label>
-	<input type="submit" value="Invite">
-</form>
-<a [routerLink]="['/dashboard']">Back</a>
+      <span *ngIf="event._Invitees">Invited:</span>
+      <ul>
+        <li *ngFor="let person of event._Invitees">{{person.name}}</li>
+      </ul>
+
+      <form name="inviteForm" (submit)="invite(); inviteForm.reset()" #inviteForm="ngForm">
+        <label for="email"><span>Friend's Email:</span><input
+          type="text"
+          name="friend"
+          [(ngModel)]="friend"
+          #friendemail='ngModel'
+          >
+        </label>
+        <input type="submit" value="Invite">
+      </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <!-- message board -->
+      <app-messagelist [childMessages]="messages"></app-messagelist>
+      <app-messagecreate (newMessageEvent)="createMessage($event)"></app-messagecreate>
+    </div>
+  </div>
+</div>
+
 </div>

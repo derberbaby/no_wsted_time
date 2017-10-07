@@ -30,7 +30,10 @@ let CreateSchema = new mongoose.Schema({
   }],
   _Invitees: [{
     type: Schema.Types.ObjectId, ref: 'User'
-  }]
+  }],
+  messages: {
+    type: Array
+  }
 },
    {
 	timestamps: {

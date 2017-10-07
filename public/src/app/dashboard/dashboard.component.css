@@ -1,0 +1,53 @@
+a {
+	text-align: right;
+	display: block;
+	margin: 10px;
+}
+
+#header {
+	background: grey;
+	color: white;
+	height: 65px;
+	margin-bottom: 10px;
+}
+
+p {
+	font-size: 30px;
+	text-align: center;
+}
+
+#todo {
+height: 300px;
+border: 1px solid #E1E1E1;
+border-radius: 5px;
+}
+
+#event {
+height: 300px;
+border: 1px solid #E1E1E1;
+border-radius: 5px;
+}
+
+#journal {
+height: 300px;
+border: 1px solid #E1E1E1;
+border-radius: 5px;
+margin-top: 10px;
+}
+
+#logout {
+	text-align: right;
+}
+
+/*.blue {
+	background-color: blue;
+}
+
+.red {
+	background-color: red;
+}
+
+.green {
+
+	background-color: green;
+}*/

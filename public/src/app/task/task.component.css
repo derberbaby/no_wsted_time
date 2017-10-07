@@ -1,4 +1,4 @@
-
+/*
 *{
     vertical-align: top;
 }
@@ -14,13 +14,19 @@ input[type=text]{
     border: 0px;
     display: inline;
     vertical-align: top;
-}
+}*/
 
-#input{
-    border-top: 1px solid black;
+label, input {
+  font-size: 18px;
+  font-weight: lighter;
 }
 
 #TaskComponent{
     display: inline-block;
     vertical-align: top;
+    padding: 15px;
+}
+
+h4 {
+  color: #C58080;
 }

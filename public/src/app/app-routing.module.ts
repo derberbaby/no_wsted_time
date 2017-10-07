@@ -19,7 +19,6 @@ const routes: Routes = [
     { path: '', pathMatch: 'full', component: EventsComponent },
     { path: 'create', component: CreateComponent },
     { path: 'events', component: EventsComponent }] },
-  
 ];
 
 @NgModule({

@@ -1,15 +1,62 @@
-<h2>Welcome, {{ first_name }}</h2>
-<a [routerLink]="['/main','login']" (click)="logout()">Logout</a>
-<h3>Date: {{ newDate | date: 'mediumDate'}}</h3>
-<div *ngIf="pending_invites">
-	<div class="invitation_info" *ngFor="let invitation of pending_invites; index as idx">
-		<p>You are invited to {{invitation.title}} on {{invitation.start_date | date:'mediumDate'}}<button (click)="onAccept(idx)">Accept</button><button (click)="onReject(idx)">Reject</button></p>
-	</div>
-</div>
-<router-outlet></router-outlet>
-<app-weather></app-weather>
-<app-task></app-task>
-<app-journal [newDate]="newDate"></app-journal>
-<div>
-<app-calendar (changedDate)="changedDate($event)"></app-calendar>
+<a id="logout" (click)="logout()" [routerLink]="['/']">Logout</a>
+<div class="container-fluid">
+  <div id="header" class="row">
+    <h1>Welcome, {{ first_name }}</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <app-weather></app-weather>
+        </div>
+      </div>
+      <div class="row cal">
+        <div class="col-md-12">
+          <app-calendar (changedDate)="changedDate($event)"></app-calendar>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="invites" *ngIf="pending_invites">
+          	<div class="invitation_info" *ngFor="let invitation of pending_invites; index as idx">
+          		<p>You are invited to {{invitation.title}} on {{invitation.start_date | date:'mediumDate'}}<button (click)="onAccept(idx)">Accept</button><button (click)="onReject(idx)">Reject</button></p>
+          	</div>
+          </div>
+        </div>
+      </div>
+      <h3 class="text-center">Date: {{ newDate | date: 'mediumDate'}}</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="todo">
+            <app-task></app-task>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div id="event">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="journal">
+            <app-journal [newDate]="newDate"></app-journal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row blue">
+    <div class="row col-md-6">
+      <h1 class="row col-md-6 red">Hello</h1>
+      <h1 class="col-md-6 green">World</h1>
+    </div>
+    <h2 class="col-md-3 col-md-offset-3 red">World</h2>
+  </div> -->
+
 </div>

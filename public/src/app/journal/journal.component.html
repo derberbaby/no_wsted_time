@@ -1,18 +1,25 @@
 <div id="journal">
+	<h3> Journal </h3>
+	<!-- <p>THE DATE BEING CLICKED ON IN JOURNAL IS {{newDate | json}}</p> -->
+	<p>{{newDate | date: 'mediumDate'}}</p>
 		<form (submit)="serviceCreateEntry()" #journalForm="ngForm" *ngIf="create">
-			<textarea type="textarea"
-			rows="4"
-			columns="30"
+			<textarea
 			name="entry"
+			cols="40"
 			placeholder="Tell me about your day..."
 			[(ngModel)]="journal.entry"
 			#entry="ngModel"></textarea>
 			<input type="submit" value="Submit">
 		</form>
+
+
 		<inline-editor *ngIf="!create"
 		type="textarea"
 		name="entry"
+		cols="40"
+		placeholder="Enter Journal Entry"
 		[(ngModel)]="journal.entry"
 		(onSave)="saveEditable($event)"
-		#entry="ngModel"></inline-editor>
+		#entry="ngModel"> </inline-editor>
+
 </div>
