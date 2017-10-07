@@ -16,7 +16,7 @@ export class JournalService {
   }
 
   serviceEditEntry(journalEntry) {
-  	console.log("IN SERVICE");
+  	// console.log("IN SERVICE");
   	return this._http.post('/api/edit_journal_entry', journalEntry).map( data => data.json()).toPromise();
   }
 }

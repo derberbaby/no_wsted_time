@@ -3,6 +3,9 @@
 		<h3>Login</h3>
 		<hr class="mt-2 mb-2">
 	</div>
+
+	<p *ngFor="let err of errors">{{ err }}</p>
+
 	<form (submit)="login()" #logForm="ngForm">
         <i class="fa fa-envelope prefix"></i>
         <input type="text" type="text"
