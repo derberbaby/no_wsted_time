@@ -78,7 +78,7 @@ module.exports = {
       if(err){
         return res.status(400).send(err);
       } else {
-        console.log(req.body);
+        // console.log(req.body);
         user.tasks = req.body;
         user.save( (err, savedTasks) => {
           if(err){
@@ -94,7 +94,7 @@ module.exports = {
       }
     })
   },
-  
+
   getTasks: (req,res) => {
     User.findOne({_id: req.session.user_id}, (err,user) => {
       if(err){
@@ -130,11 +130,11 @@ module.exports = {
                   user.pending.splice(req.body.index, 1);
                   user.save ( (err, savedUser) => {
                     if (err) {
-                      console.log("FAILED");
+                      // console.log("FAILED");
                       return res.sendStatus(400);
                     } else {
-                      console.log("SUCCESS", user);
-                      console.log("EVENT", savedEvent);
+                      // console.log("SUCCESS", user);
+                      // console.log("EVENT", savedEvent);
                       return res.json(user);
                     }
                   })
@@ -184,7 +184,7 @@ module.exports = {
   inviteFriend: (req, res) => {
     console.log("in controller!", req.body.email);
     User.findOne({email: req.body.email}, (err,friend) => {
-      console.log("found friend", friend);
+      // console.log("found friend", friend);
       if(err) {
         let errors=[];
         for(let i in err.errors) {
@@ -192,9 +192,9 @@ module.exports = {
         }
         return res.status(400).send(errors);
       } else {
-        console.log("in query", req.params);
+        // console.log("in query", req.params);
         Create.findOne({_id: req.params.event_id}, (err,event) => {
-          console.log("found event", event);
+          // console.log("found event", event);
           if(err) {
             let errors=[];
             for(let i in err.errors) {
@@ -220,7 +220,7 @@ module.exports = {
                     }
                     return res.status(400).send(errors);
                   } else {
-                    console.log("successfully saved friend to event", event)
+                    // console.log("successfully saved friend to event", event)
                     return res.json(true);
                   }
                 })

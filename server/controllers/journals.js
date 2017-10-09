@@ -33,7 +33,7 @@ module.exports = {
   },
 
   newEntry: (req, res) => {
-    console.log("YAYYY");
+    // console.log("YAYYY");
     if (req.session.user_id) {
         let newJournal = new Journal(req.body);
         User.findOne({_id:req.session.user_id}, (err, user) => {
@@ -59,19 +59,19 @@ module.exports = {
                 user.journal.push(newJournal);
                 user.save ( ( err, savedUser) => {
                     if (err) {
-                        let errors = [];
-                        for (let i in err.errors) {
-                            errors.push(err.errors[i].message);
-                        }
-                    return res.status(400).send(errors);
-            } else {
-                return res.json(true);
-            }
-        })
-        }
+                      let errors = [];
+                      for (let i in err.errors) {
+                          errors.push(err.errors[i].message);
+                      }
+                      return res.status(400).send(errors);
+                    } else {
+                      return res.json(true);
+                    }
+                })
+              }
             })
         }
         })
     }
-    }
+  }
 }
